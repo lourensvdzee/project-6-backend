@@ -1,6 +1,6 @@
 // import { places } from '../../../lib/db';
-import Place from '../../../lib/models/Place';
-import dbConnect from '../../../lib/dbConnect';
+import dbConnect from '../../../db/connect';
+import Place from '../../../db/models/Place';
 
 // export default function handler(request, response) {
 //   return response.status(200).json(places);
@@ -9,10 +9,8 @@ import dbConnect from '../../../lib/dbConnect';
 export default async function handler(request, response) {
   await dbConnect();
 
-  if (request.method === "GET") {
-    const places = await Place.find({});
-    response.status(200).json(places);
-  } else {
-    response.status(400).json({ message: "Wrong HTTP method" });
+  if (request.method === 'GET') {
+    const places = await Place.find();
+    return response.status(200).json(places);
   }
 }
