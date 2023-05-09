@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router.js';
-import useSWR from 'swr';
-import styled from 'styled-components';
-import { StyledLink } from '../../../components/StyledLink.js';
-import { StyledButton } from '../../../components/StyledButton.js';
-import { StyledImage } from '../../../components/StyledImage.js';
+import Link from "next/link";
+import { useRouter } from "next/router.js";
+import useSWR from "swr";
+import styled from "styled-components";
+import { StyledLink } from "../../../components/StyledLink.js";
+import { StyledButton } from "../../../components/StyledButton.js";
+import { StyledImage } from "../../../components/StyledImage.js";
 
 const ImageContainer = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ const ButtonContainer = styled.section`
 const StyledLocationLink = styled(StyledLink)`
   text-align: center;
   background-color: white;
-  border: 3px solid lightsalmon;
+  border: 3px solid white;
 `;
 
 export default function DetailsPage() {
@@ -39,14 +39,14 @@ export default function DetailsPage() {
 
   async function deletePlace() {
     await fetch(`/api/places/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
-    push('/');
+    push("/");
   }
 
   return (
     <>
-      <Link href={'/'} passHref legacyBehavior>
+      <Link href={"/"} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
       <ImageContainer>

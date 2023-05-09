@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
-  border: 5px solid black;
+  border: 2px solid #f5f5dc;
   border-radius: 0.8rem;
   padding: 0.5rem;
+  background-color: #acb1d6;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const ImageContainer = styled.div`
@@ -42,6 +44,18 @@ const ScreenReaderOnly = styled.span`
   border-width: 0;
 `;
 
+const Figcaption = styled.figcaption`
+  font-family: Geneva;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-top: 0.5rem;
+`;
+
+const Paragraph = styled.p`
+  font-family: Geneva;
+  font-size: 1rem;
+`;
+
 export default function Card({ name, image, location, id }) {
   return (
     <Article>
@@ -56,9 +70,9 @@ export default function Card({ name, image, location, id }) {
             alt=""
           />
         </ImageContainer>
-        <figcaption>{name}</figcaption>
+        <Figcaption>{name}</Figcaption>
       </Figure>
-      <p>Location: {location}</p>
+      <Paragraph>Location: {location}</Paragraph>
       <Link href={`places/${id}`} passHref legacyBehavior>
         <Anchor>
           <ScreenReaderOnly>More Info</ScreenReaderOnly>
